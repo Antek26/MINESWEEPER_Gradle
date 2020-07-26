@@ -1,0 +1,12 @@
+for (int heightPos = -200; heightPos <= 200; heightPos += 25)
+{
+    for (int widthPos = -200; widthPos <= 200; widthPos += 25)
+    {
+        this.button = new Button();
+                button.setMaxHeight(20);
+                button.setMaxWidth(20);
+                button.setTranslateX(widthPos);
+                button.setTranslateY(heightPos);
+                pane.getChildren.add(button)
+    }
+}
