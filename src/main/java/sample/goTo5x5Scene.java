@@ -53,7 +53,7 @@ public class goTo5x5Scene implements goToScene {
         {
             main2.mainClassPane.getChildren().add(imageView);
             stage.setScene(mainScene);
-            stage.show();
+//            stage.show();
         });
 
 
