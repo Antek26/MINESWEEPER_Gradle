@@ -1,5 +1,7 @@
 package sample;
 
+import static sample.main2.imageView;
+
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
@@ -49,22 +51,9 @@ public class goTo5x5Scene implements goToScene {
 
         quitButton.setOnAction(e ->
         {
-            Pane subPane1 = new Pane();
-            subPane1.getChildren().add(logoImage);
-
-            addButtons.modifyButtonSize(main2.getButton5x5(),150,40,0,0);
-            subPane1.getChildren().add(main2.getButton5x5());
-
-            addButtons.modifyButtonSize(main2.getButton10x10(),150,40,0,70);
-            subPane1.getChildren().add(main2.getButton10x10());
-
-            addButtons.modifyButtonSize(main2.getButton20x20(), 150,40,0,140);
-            subPane1.getChildren().add(main2.getButton20x20());
-
-
-            main2.getMainClassPane().getChildren().addAll(subPane1);
+            main2.mainClassPane.getChildren().add(imageView);
             stage.setScene(mainScene);
-            stage.show();
+//            stage.show();
         });
 
 
