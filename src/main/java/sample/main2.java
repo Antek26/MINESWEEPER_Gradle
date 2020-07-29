@@ -1,5 +1,6 @@
 package sample;
 
+import java.util.Objects;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -26,7 +27,8 @@ public class main2 extends Application{
     private static Button button10x10;
     private static Button button20x20;
 
-    private static StackPane mainClassPane;
+    static StackPane mainClassPane;
+    static ImageView imageView;
 
 
     public static void main (String[] args)
@@ -39,15 +41,14 @@ public class main2 extends Application{
     public void start(Stage stage) throws Exception
     {
         stage.setTitle("Minesweeper");
-        StackPane pane = new StackPane();
-        this.mainClassPane = pane;
+        main2.mainClassPane = new StackPane();
 
         //Creating the image
-        Image image = new Image(getClass().getClassLoader().getResourceAsStream("sample/Minesweeper_Logo.png"));
+        Image image = new Image(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("sample/Minesweeper_Logo.png")));
 
 
         //Setting the image view
-        ImageView imageView = new ImageView(image);
+        imageView = new ImageView(image);
 
         //Setting the position of the image
         imageView.setTranslateX(0);
@@ -63,27 +64,27 @@ public class main2 extends Application{
         imageView.setPreserveRatio(true);
 
         //Adding the imageView to the Pane
-        pane.getChildren().add(imageView);
+        main2.mainClassPane.getChildren().add(imageView);
 
         //Creating the buttons
         Button grid25Squares = new Button();
         this.button5x5 = grid25Squares;
         grid25Squares.setText("5x5 Board");
-        addButtons.addButtonToPane(grid25Squares,pane,150,40,0, 0);
+        addButtons.addButtonToPane(grid25Squares, main2.mainClassPane,150,40,0, 0);
 
         Button grid100Squares = new Button();
         this.button10x10 = grid100Squares;
         grid100Squares.setText("10x10 Board");
-        addButtons.addButtonToPane(grid100Squares,pane,150,40,0, 70);
+        addButtons.addButtonToPane(grid100Squares,main2.mainClassPane,150,40,0, 70);
 
         Button grid400Squares = new Button();
         this.button20x20 = grid400Squares;
         grid400Squares.setText("20x20 Board");
-        addButtons.addButtonToPane(grid400Squares,pane, 150, 40, 0, 140);
+        addButtons.addButtonToPane(grid400Squares,main2.mainClassPane, 150, 40, 0, 140);
 
 
 
-        Scene scene = new Scene(pane,600,500);
+        Scene scene = new Scene(main2.mainClassPane,600,500);
         goTo5x5Scene.setMainScene(scene);
         goTo10x10Scene.setMainScene(scene);
         goTo20x20Scene.setMainScene(scene);
